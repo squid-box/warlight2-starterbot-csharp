@@ -4,15 +4,26 @@
 
     public class SuperRegion
     {
+        /// <summary>
+        /// ID of this SuperRegion.
+        /// </summary>
         public int Id { get; private set; }
+        
+        /// <summary>
+        /// Army bonus awarded if entire SuperRegion is controlled.
+        /// </summary>
         public int ArmiesReward;
+        
+        /// <summary>
+        /// List of regions in this SuperRegion.
+        /// </summary>
         public LinkedList<Region> SubRegions;
 
         /// <summary>
-        /// 
+        /// Create an empty SuperRegion.
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="armiesReward"></param>
+        /// <param name="id">ID of this SuperRegion.</param>
+        /// <param name="armiesReward">Army reward for this SuperRegion.</param>
         public SuperRegion(int id, int armiesReward)
         {
             Id = id;
@@ -21,9 +32,9 @@
         }
 
         /// <summary>
-        /// 
+        /// Add Region to this SuperRegion.
         /// </summary>
-        /// <param name="subRegion"></param>
+        /// <param name="subRegion">Region to add.</param>
         public void AddSubRegion(Region subRegion)
         {
             if (!SubRegions.Contains(subRegion))
@@ -33,7 +44,7 @@
         }
 
         /// <summary>
-        /// 
+        /// Checks if this SuperRegion is completely controlled by one player.
         /// </summary>
         /// <returns>A string with the name of the player that fully owns this SuperRegion.</returns>
         public string OwnedByPlayer()

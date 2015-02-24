@@ -15,12 +15,20 @@
         /// </summary>
         public LinkedList<SuperRegion> SuperRegions { get; private set; }
 
+        /// <summary>
+        /// Creates an empty map.
+        /// </summary>
         public Map()
         {
             Regions = new LinkedList<Region>();
             SuperRegions = new LinkedList<SuperRegion>();
         }
 
+        /// <summary>
+        /// Creates a populated map.
+        /// </summary>
+        /// <param name="regions">List of Regions.</param>
+        /// <param name="superRegions">List of SuperRegions.</param>
         public Map(LinkedList<Region> regions, LinkedList<SuperRegion> superRegions)
         {
             Regions = regions;
@@ -46,7 +54,7 @@
 	    }
 
         /// <summary>
-        /// SuperRegion to the map
+        /// Add a SuperRegion to the map
         /// </summary>
         /// <param name="superRegion">SuperRegion to be added.</param>
         public void Add(SuperRegion superRegion)
@@ -64,7 +72,7 @@
 	    }
 
         /// <summary>
-        /// 
+        /// Make an exact copy of this map.
         /// </summary>
         /// <returns>A new Map object exactly the same as this one.</returns>
         public Map GetMapCopy() 
@@ -87,7 +95,7 @@
 		        
                 foreach (var neighbor in r.Neighbors)
 		        {
-		            newRegion.AddNeighbour(newMap.GetRegion(neighbor.Id));
+		            newRegion.AddNeighbor(newMap.GetRegion(neighbor.Id));
 		        }
 		    }
 
@@ -95,7 +103,7 @@
 	    }
 
         /// <summary>
-        /// 
+        /// Retrieve a specific Region object.
         /// </summary>
         /// <param name="id">A Region ID number.</param>
         /// <returns>The matching Region object.</returns>
@@ -113,7 +121,7 @@
 	    }
 
         /// <summary>
-        /// 
+        /// Retrieve a specific SuperRegion object.
         /// </summary>
         /// <param name="id">A SuperRegion ID number.</param>
         /// <returns>The matching SuperRegion object.</returns>
@@ -130,9 +138,9 @@
 	    }
 
         /// <summary>
-        /// 
+        /// Get a string representation of this Map.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>String with no line breaks, outlining the status of the Map.</returns>
         public override string ToString()
 	    {
 		    var mapstring = string.Empty;

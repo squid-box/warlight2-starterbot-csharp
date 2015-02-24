@@ -68,6 +68,9 @@
         /// </summary>
         public long TimePerMove;
 
+        /// <summary>
+        /// Create a default BotState.
+        /// </summary>
         public BotState()
         {
             OpponentMoves = new List<Move>();
@@ -79,6 +82,11 @@
 
         }
 
+        /// <summary>
+        /// Update a given setting.
+        /// </summary>
+        /// <param name="key">Setting to change.</param>
+        /// <param name="parts">Data to set.</param>
         public void UpdateSettings(string key, string[] parts)
         {
             if (key.Equals("starting_regions") && parts.Length > 3)
@@ -91,7 +99,7 @@
 
             if (key.Equals("your_bot"))
             {
-                MyName = parts[2];
+                MyName = value;
             }
             else if (key.Equals("opponent_bot"))
             {
@@ -171,7 +179,7 @@
                         for (int j = 0; j < neighborIds.Length; j++)
                         {
                             Region neighbor = FullMap.GetRegion(int.Parse(neighborIds[j]));
-                            region.AddNeighbour(neighbor);
+                            region.AddNeighbor(neighbor);
                         }
                     }
                     catch (Exception e)

@@ -18,13 +18,13 @@
     /// </summary>
     public class BotStarter : Bot
     {
-	    /// <summary>
-	    /// A method that returns which region the bot would like to start on, the pickable regions are stored in the BotState.
-	    /// The bots are asked in turn (ABBAABBAAB) where they would like to start and return a single region each time they are asked.
-	    /// </summary>
-	    /// <param name="state"></param>
-	    /// <param name="timeOut"></param>
-	    /// <returns>This method returns one random region from the given pickable regions.</returns>
+        /// <summary>
+        /// A method that returns which region the bot would like to start on, the pickable regions are stored in the BotState.
+        /// The bots are asked in turn (ABBAABBAAB) where they would like to start and return a single region each time they are asked.
+        /// </summary>
+        /// <param name="state">Current BotState.</param>
+        /// <param name="timeOut">Time limit for this operation, in milliseconds.</param>
+        /// <returns>This method returns one random region from the given pickable regions.</returns>
 	    public Region GetStartingRegion(BotState state, long timeOut)
 	    {
 		    var rand = new Random().NextDouble();
@@ -35,13 +35,13 @@
 		    return startingRegion;
 	    }
 
-	    /// <summary>
-	    /// This method is called for at first part of each round. This example puts two armies on random regions
-	    /// until he has no more armies left to place.
-	    /// </summary>
-	    /// <param name="state"></param>
-	    /// <param name="timeOut"></param>
-	    /// <returns>The list of PlaceArmiesMoves for one round</returns>
+        /// <summary>
+        /// This method is called for at first part of each round. This example puts two armies on random regions
+        /// until he has no more armies left to place.
+        /// </summary>
+        /// <param name="state">Current BotState.</param>
+        /// <param name="timeOut">Time limit for this operation, in milliseconds.</param>
+        /// <returns>The list of PlaceArmiesMoves for one round.</returns>
 	    public List<PlaceArmiesMove> GetPlaceArmiesMoves(BotState state, long timeOut) 
 	    {
 		    var placeArmiesMoves = new List<PlaceArmiesMove>();
@@ -62,17 +62,17 @@
 				    armiesLeft -= armies;
 			    }
 		    }
-		
+
 		    return placeArmiesMoves;
 	    }
 
-	    /// <summary>
+        /// <summary>
         /// This method is called for at the second part of each round. This example attacks if a region has
         /// more than 6 armies on it, and transfers if it has less than 6 and a neighboring owned region.
-	    /// </summary>
-	    /// <param name="state"></param>
-	    /// <param name="timeOut"></param>
-        /// <returns>The list of PlaceArmiesMoves for one round</returns>
+        /// </summary>
+        /// <param name="state">Current BotState.</param>
+        /// <param name="timeOut">Time limit for this operation, in milliseconds.</param>
+        /// <returns>The list of PlaceArmiesMoves for one round.</returns>
 	    public List<AttackTransferMove> GetAttackTransferMoves(BotState state, long timeOut) 
 	    {
 		    var attackTransferMoves = new List<AttackTransferMove>();

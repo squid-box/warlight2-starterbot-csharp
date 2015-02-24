@@ -11,6 +11,12 @@
         public Region Region { get; private set; }
         public int Armies { get; set; }
 
+        /// <summary>
+        /// Creates a PlaceArmiesMove.
+        /// </summary>
+        /// <param name="playerName">Name of player performing move.</param>
+        /// <param name="region">Region to reinforce.</param>
+        /// <param name="armies">Number of armies to place.</param>
         public PlaceArmiesMove(string playerName, Region region, int armies)
         {
             base.PlayerName = playerName;
@@ -32,7 +38,6 @@
             {
                 return PlayerName + " illegal_move " + IllegalMove;
             }
-
         }
     }
 }

@@ -10,10 +10,28 @@
     /// </summary>
     public class AttackTransferMove : Move
     {
+        /// <summary>
+        /// Region to perform Move from.
+        /// </summary>
         public Region fromRegion { get; private set; }
+        
+        /// <summary>
+        /// Region to perform Move to.
+        /// </summary>
         public Region toRegion { get; private set; }
+        
+        /// <summary>
+        /// Number of armies to be moved in this Move.
+        /// </summary>
         public int Armies { get; set; }
 
+        /// <summary>
+        /// Create an attack/transfer Move.
+        /// </summary>
+        /// <param name="playerName">Player performing this move.</param>
+        /// <param name="fromRegion">Region to move armies from.</param>
+        /// <param name="toRegion">Region to move armies to.</param>
+        /// <param name="armies">Number of armies to move.</param>
         public AttackTransferMove(string playerName, Region fromRegion, Region toRegion, int armies)
         {
             base.PlayerName = playerName;

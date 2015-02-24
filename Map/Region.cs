@@ -10,7 +10,7 @@
         public int Id { get; private set; }
 
         /// <summary>
-        /// List of neighbours to this Region.
+        /// List of neighbors to this Region.
         /// </summary>
         public LinkedList<Region> Neighbors { get; private set; }
 
@@ -29,6 +29,11 @@
         /// </summary>
         public string PlayerName { get; set; }
 
+        /// <summary>
+        /// Create an empty region.
+        /// </summary>
+        /// <param name="id">Unique ID of this Region.</param>
+        /// <param name="superRegion">SuperRegion this Region belongs to.</param>
         public Region(int id, SuperRegion superRegion)
         {
             Id = id;
@@ -40,6 +45,13 @@
             superRegion.AddSubRegion(this);
         }
 
+        /// <summary>
+        /// Create an inhabited region.
+        /// </summary>
+        /// <param name="id">Unique ID of this Region.</param>
+        /// <param name="superRegion">SuperRegion this Region belongs to.</param>
+        /// <param name="playerName">Owner of this Region.</param>
+        /// <param name="armies">Number of armies in this region.</param>
         public Region(int id, SuperRegion superRegion, string playerName, int armies)
         {
             Id = id;
@@ -51,21 +63,25 @@
             superRegion.AddSubRegion(this);
         }
 
-        public void AddNeighbour(Region neighbour)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="neighbor"></param>
+        public void AddNeighbor(Region neighbor)
         {
-            if (!Neighbors.Contains(neighbour))
+            if (!Neighbors.Contains(neighbor))
             {
-                Neighbors.AddLast(neighbour);
-                neighbour.AddNeighbour(this);
+                Neighbors.AddLast(neighbor);
+                neighbor.AddNeighbor(this);
             }
         }
 
         /// <summary>
-        /// 
+        /// Checks to see if given Region is a neighbor to this region.
         /// </summary>
         /// <param name="region"></param>
-        /// <returns>True if this Region is a neighbour of given Region, false otherwise.</returns>
-        public bool IsNeighbour(Region region)
+        /// <returns>True if this Region is a neighbor of given Region, false otherwise.</returns>
+        public bool IsNeighbor(Region region)
         {
             return Neighbors.Contains(region);
         }

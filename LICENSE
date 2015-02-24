@@ -20,3 +20,17 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
+------------------------------------------------------------------------------
+
+Code based on example by Jim van Eeden, closest to 
+original license I could find is presented below:
+
+/**
+ * Warlight AI Game Bot
+ *
+ * Last update: January 29, 2015
+ *
+ * @author Jim van Eeden
+ * @version 1.1
+ * @License MIT License (http://opensource.org/Licenses/MIT)
+ */

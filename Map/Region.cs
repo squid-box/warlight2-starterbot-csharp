@@ -14,7 +14,7 @@
         /// <summary>
         /// List of neighbors to this Region.
         /// </summary>
-        public LinkedList<Region> Neighbors { get; private set; }
+        public List<Region> Neighbors { get; private set; }
 
         /// <summary>
         /// SuperRegion of this Region.
@@ -42,7 +42,7 @@
         {
             Id = id;
             SuperRegion = superRegion;
-            Neighbors = new LinkedList<Region>();
+            Neighbors = new List<Region>();
             PlayerName = "unknown";
             Armies = 0;
 
@@ -60,7 +60,7 @@
         {
             Id = id;
             SuperRegion = superRegion;
-            Neighbors = new LinkedList<Region>();
+            Neighbors = new List<Region>();
             PlayerName = playerName;
             Armies = armies;
 
@@ -75,7 +75,7 @@
         {
             if (!Neighbors.Contains(neighbor))
             {
-                Neighbors.AddLast(neighbor);
+                Neighbors.Add(neighbor);
                 neighbor.AddNeighbor(this);
             }
         }

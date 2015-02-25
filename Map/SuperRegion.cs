@@ -19,7 +19,7 @@
         /// <summary>
         /// List of regions in this SuperRegion.
         /// </summary>
-        public LinkedList<Region> SubRegions;
+        public List<Region> SubRegions;
 
         #endregion
 
@@ -32,7 +32,7 @@
         {
             Id = id;
             ArmiesReward = armiesReward;
-            SubRegions = new LinkedList<Region>();
+            SubRegions = new List<Region>();
         }
 
         /// <summary>
@@ -43,7 +43,7 @@
         {
             if (!SubRegions.Contains(subRegion))
             {
-                SubRegions.AddLast(subRegion);
+                SubRegions.Add(subRegion);
             }
         }
 
@@ -53,7 +53,7 @@
         /// <returns>A string with the name of the player that fully owns this SuperRegion.</returns>
         public string OwnedByPlayer()
 	    {
-            var playerName = SubRegions.First.Value.PlayerName;
+            var playerName = SubRegions[0].PlayerName;
 
 		    foreach (var region in SubRegions)
 		    {

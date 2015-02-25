@@ -2,7 +2,6 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.Linq;
 
     using Map;
     using Move;
@@ -29,7 +28,7 @@
 	    {
 		    var rand = new Random().NextDouble();
 		    var r = (int) (rand*state.PickableStartingRegions.Count);
-		    var regionId = state.PickableStartingRegions.ElementAt(r).Id;
+            var regionId = state.PickableStartingRegions[r].Id;
 		    var startingRegion = state.FullMap.GetRegion(regionId);
 		
 		    return startingRegion;
@@ -54,7 +53,7 @@
 		    {
 		        var rand = new Random().NextDouble();
 			    var r = (int) (rand*visibleRegions.Count);
-			    var region = visibleRegions.ElementAt(r);
+			    var region = visibleRegions[r];
 			
 			    if(region.OwnedByPlayer(myName))
 			    {
@@ -92,7 +91,7 @@
 				    {
 				        var rand = new Random().NextDouble();
 					    var r = (int) (rand*possibleToRegions.Count);
-					    var toRegion = possibleToRegions.ElementAt(r);
+					    var toRegion = possibleToRegions[r];
 					
 					    if (!toRegion.PlayerName.Equals(myName) && fromRegion.Armies > 6) //do an attack
 					    {

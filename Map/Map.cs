@@ -10,12 +10,12 @@
         /// <summary>
         /// The list of all Regions in this map.
         /// </summary>
-        public LinkedList<Region> Regions { get; private set; }
+        public List<Region> Regions { get; private set; }
         
         /// <summary>
         /// The list of all SuperRegions in this map.
         /// </summary>
-        public LinkedList<SuperRegion> SuperRegions { get; private set; }
+        public List<SuperRegion> SuperRegions { get; private set; }
 
         #endregion
 
@@ -24,8 +24,8 @@
         /// </summary>
         public Map()
         {
-            Regions = new LinkedList<Region>();
-            SuperRegions = new LinkedList<SuperRegion>();
+            Regions = new List<Region>();
+            SuperRegions = new List<SuperRegion>();
         }
 
         /// <summary>
@@ -33,7 +33,7 @@
         /// </summary>
         /// <param name="regions">List of Regions.</param>
         /// <param name="superRegions">List of SuperRegions.</param>
-        public Map(LinkedList<Region> regions, LinkedList<SuperRegion> superRegions)
+        public Map(List<Region> regions, List<SuperRegion> superRegions)
         {
             Regions = regions;
             SuperRegions = superRegions;
@@ -54,7 +54,7 @@
 			    }
             }
 
-            Regions.AddLast(region);
+            Regions.Add(region);
 	    }
 
         /// <summary>
@@ -72,7 +72,7 @@
                 }
             }
 
-            SuperRegions.AddLast(superRegion);
+            SuperRegions.Add(superRegion);
 	    }
 
         /// <summary>

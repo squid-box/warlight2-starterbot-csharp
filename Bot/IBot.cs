@@ -8,7 +8,7 @@
     /// <summary>
     /// Interface for a bot.
     /// </summary>
-    public interface Bot
+    public interface IBot
     {
         /// <summary>
         /// A method that returns which region the bot would like to start on, the pickable regions are stored in the BotState.

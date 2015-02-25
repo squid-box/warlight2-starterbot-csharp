@@ -5,6 +5,8 @@
     /// </summary>
     public abstract class Move
     {
+        #region Properties
+
         /// <summary>
         /// Name of the player that did this move.
         /// </summary>
@@ -15,7 +17,12 @@
         /// </summary>
         public string IllegalMove { get; set; }
 
-        public Move()
+        #endregion
+
+        /// <summary>
+        /// Only called from subclasses.
+        /// </summary>
+        protected Move()
         {
             IllegalMove = string.Empty;
         }

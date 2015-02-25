@@ -10,20 +10,24 @@
     /// </summary>
     public class AttackTransferMove : Move
     {
+        #region Properties
+
         /// <summary>
         /// Region to perform Move from.
         /// </summary>
-        public Region fromRegion { get; private set; }
+        public Region FromRegion { get; private set; }
         
         /// <summary>
         /// Region to perform Move to.
         /// </summary>
-        public Region toRegion { get; private set; }
+        public Region ToRegion { get; private set; }
         
         /// <summary>
         /// Number of armies to be moved in this Move.
         /// </summary>
         public int Armies { get; set; }
+
+        #endregion
 
         /// <summary>
         /// Create an attack/transfer Move.
@@ -34,10 +38,10 @@
         /// <param name="armies">Number of armies to move.</param>
         public AttackTransferMove(string playerName, Region fromRegion, Region toRegion, int armies)
         {
-            base.PlayerName = playerName;
-            this.fromRegion = fromRegion;
-            this.toRegion = toRegion;
-            this.Armies = armies;
+            PlayerName = playerName;
+            FromRegion = fromRegion;
+            ToRegion = toRegion;
+            Armies = armies;
         }
 
         /// <summary>
@@ -48,7 +52,7 @@
         {
             if (IllegalMove.Equals(""))
             {
-                return PlayerName + " attack/transfer " + fromRegion.Id + " " + toRegion.Id + " " + Armies;
+                return PlayerName + " attack/transfer " + FromRegion.Id + " " + ToRegion.Id + " " + Armies;
             }
             else
             {

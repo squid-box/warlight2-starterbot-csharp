@@ -8,6 +8,8 @@
 
     public class BotState
     {
+        #region Properties
+
         /// <summary>
         /// My name.
         /// </summary>
@@ -31,42 +33,44 @@
         /// <summary>
         /// List of regions the player can choose the start from
         /// </summary>
-	    public List<Region> PickableStartingRegions;
+        public List<Region> PickableStartingRegions { get; private set; }
 	    
         /// <summary>
         /// Wastelands, i.e. neutral regions with a larger amount of armies on them. Given before the picking of starting regions
         /// </summary>
-        public List<Region> Wastelands;
+        public List<Region> Wastelands { get; private set; }
 	
         /// <summary>
         /// List of all the opponent's moves, reset at the end of each round
         /// </summary>
-	    public List<Move> OpponentMoves; 
+        public List<Move> OpponentMoves { get; private set; }
 
         /// <summary>
         /// Number of armies the player can place on map
         /// </summary>
-	    public int StartingArmies;
+        public int StartingArmies { get; private set; }
 	    
         /// <summary>
-        /// 
+        /// Maximum number of rounds of this game, game ties when this amount is reached.
         /// </summary>
-        public int MaxRounds;
+        public int MaxRounds { get; private set; }
 	    
         /// <summary>
-        /// 
+        /// Current round.
         /// </summary>
-        public int RoundNumber;
+        public int RoundNumber { get; private set; }
 
         /// <summary>
         /// Total time that can be in the timebank
         /// </summary>
-	    public long TotalTimebank;
+        public long TotalTimebank { get; private set; }
 	    
         /// <summary>
         /// The amount of time that is added to the timebank per requested move.
         /// </summary>
-        public long TimePerMove;
+        public long TimePerMove { get; private set; }
+
+        #endregion
 
         /// <summary>
         /// Create a default BotState.
@@ -158,7 +162,7 @@
                         regionId = int.Parse(mapInput[i]);
                         i++;
                         superRegionId = int.Parse(mapInput[i]);
-                        SuperRegion superRegion = FullMap.GetSuperRegion(superRegionId);
+                        var superRegion = FullMap.GetSuperRegion(superRegionId);
                         FullMap.Add(new Region(regionId, superRegion));
                     }
                     catch (Exception e)
@@ -173,12 +177,13 @@
                 {
                     try
                     {
-                        Region region = FullMap.GetRegion(int.Parse(mapInput[i]));
+                        var region = FullMap.GetRegion(int.Parse(mapInput[i]));
                         i++;
-                        string[] neighborIds = mapInput[i].Split(',');
-                        for (int j = 0; j < neighborIds.Length; j++)
+                        var neighborIds = mapInput[i].Split(',');
+                        
+                        for (var j = 0; j < neighborIds.Length; j++)
                         {
-                            Region neighbor = FullMap.GetRegion(int.Parse(neighborIds[j]));
+                            var neighbor = FullMap.GetRegion(int.Parse(neighborIds[j]));
                             region.AddNeighbor(neighbor);
                         }
                     }
@@ -283,6 +288,7 @@
                 try
                 {
                     Move move;
+
                     if (moveInput[i + 1].Equals("place_armies"))
                     {
                         var region = VisibleMap.GetRegion(int.Parse(moveInput[i + 2]));
@@ -317,6 +323,7 @@
                         //never happens
                         continue;
                     }
+
                     OpponentMoves.Add(move);
                 }
                 catch (Exception e)

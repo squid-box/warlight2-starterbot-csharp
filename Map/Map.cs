@@ -5,6 +5,8 @@
 
     public class Map
     {
+        #region Properties
+
         /// <summary>
         /// The list of all Regions in this map.
         /// </summary>
@@ -14,6 +16,8 @@
         /// The list of all SuperRegions in this map.
         /// </summary>
         public LinkedList<SuperRegion> SuperRegions { get; private set; }
+
+        #endregion
 
         /// <summary>
         /// Creates an empty map.
@@ -134,6 +138,7 @@
                     return superRegion;
                 }
             }
+
 		    return null;
 	    }
 

@@ -2,18 +2,16 @@
 {
     using System;
 
-    using Map;
-
     /// <summary>
     /// Used to read input for the bot.
     /// </summary>
     public class BotParser
     {
-	    private readonly Bot _bot;
+	    private readonly IBot _bot;
 
         private readonly BotState _currentState;
 	
-	    public BotParser(Bot bot)
+	    public BotParser(IBot bot)
 	    {
 		    _bot = bot;
 		    _currentState = new BotState();
@@ -38,7 +36,7 @@
 			    if(parts[0].Equals("pick_starting_region")) //pick which regions you want to start with
 			    {
 				    _currentState.SetPickableStartingRegions(parts);
-				    Region startingRegion = _bot.GetStartingRegion(_currentState, long.Parse(parts[1]));
+				    var startingRegion = _bot.GetStartingRegion(_currentState, long.Parse(parts[1]));
 				
 				    Console.Out.WriteLine(startingRegion.Id);
 			    }

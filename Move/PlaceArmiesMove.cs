@@ -8,8 +8,19 @@
     /// </summary>
     public class PlaceArmiesMove : Move
     {
+        #region Properties
+
+        /// <summary>
+        /// Region this Move targets.
+        /// </summary>
         public Region Region { get; private set; }
+        
+        /// <summary>
+        /// Number of armies to place to given Region.
+        /// </summary>
         public int Armies { get; set; }
+
+        #endregion
 
         /// <summary>
         /// Creates a PlaceArmiesMove.
@@ -19,7 +30,7 @@
         /// <param name="armies">Number of armies to place.</param>
         public PlaceArmiesMove(string playerName, Region region, int armies)
         {
-            base.PlayerName = playerName;
+            PlayerName = playerName;
             Region = region;
             Armies = armies;
         }

@@ -16,7 +16,7 @@
     /// The bot is started by creating a Parser to which you add
     /// a new instance of your bot, and then the parser is started.
     /// </summary>
-    public class BotStarter : Bot
+    public class BotStarter : IBot
     {
         /// <summary>
         /// A method that returns which region the bot would like to start on, the pickable regions are stored in the BotState.

@@ -4,6 +4,8 @@
 
     public class SuperRegion
     {
+        #region Properties
+
         /// <summary>
         /// ID of this SuperRegion.
         /// </summary>
@@ -18,6 +20,8 @@
         /// List of regions in this SuperRegion.
         /// </summary>
         public LinkedList<Region> SubRegions;
+
+        #endregion
 
         /// <summary>
         /// Create an empty SuperRegion.
@@ -50,6 +54,7 @@
         public string OwnedByPlayer()
 	    {
             var playerName = SubRegions.First.Value.PlayerName;
+
 		    foreach (var region in SubRegions)
 		    {
 		        if (!playerName.Equals(region.PlayerName))
@@ -57,6 +62,7 @@
 		            return null;
 		        }
 		    }
+
 		    return playerName;
 	    }
     }

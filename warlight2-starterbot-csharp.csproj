@@ -39,7 +39,7 @@
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bot\Bot.cs" />
+    <Compile Include="Bot\IBot.cs" />
     <Compile Include="Bot\BotParser.cs" />
     <Compile Include="Bot\BotStarter.cs" />
     <Compile Include="Bot\BotState.cs" />

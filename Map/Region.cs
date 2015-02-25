@@ -4,6 +4,8 @@
 
     public class Region
     {
+        #region Properties
+
         /// <summary>
         /// ID of this Region.
         /// </summary>
@@ -28,6 +30,8 @@
         /// Name of the owner of this Region.
         /// </summary>
         public string PlayerName { get; set; }
+
+        #endregion
 
         /// <summary>
         /// Create an empty region.

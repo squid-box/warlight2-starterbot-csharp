@@ -36,9 +36,6 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Properties\" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="Bot\IBot.cs" />
     <Compile Include="Bot\BotParser.cs" />
     <Compile Include="Bot\BotStarter.cs" />
